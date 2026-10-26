@@ -1,7 +1,7 @@
 // enum SelectionType { date, month, year }
 
 class NepaliDateValue {
-  final String bsDate;
+  final String? bsDate;
   final String adDate;
   final String? bsEndDate;
   final String? adEndDate;
@@ -10,7 +10,7 @@ class NepaliDateValue {
   // final SelectionType selectionType;
 
   const NepaliDateValue({
-    required this.bsDate,
+    this.bsDate,
     required this.adDate,
     this.bsEndDate,
     this.adEndDate,
@@ -22,7 +22,7 @@ class NepaliDateValue {
   bool get isRange => bsEndDate != null && adEndDate != null;
 
   Map<String, dynamic> toJson() => {
-        'bsDate': bsDate,
+        if (bsDate != null) 'bsDate': bsDate,
         'adDate': adDate,
         if (bsEndDate != null) 'bsEndDate': bsEndDate,
         if (adEndDate != null) 'adEndDate': adEndDate,
